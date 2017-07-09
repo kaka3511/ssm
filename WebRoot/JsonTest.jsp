@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="cn.itcast.po.Items" %>    
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Json解析测试</title>
+<% Items items = new Items();
+	items.setName("goods");
+	items.setPrice(100.0f);
+	request.setAttribute("items", items);
+%>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript">
 
@@ -39,6 +46,9 @@
 <body>
 <input type="button" value="Json请求" onclick="requestJson()" />
 <input type="button" value="key/value请求" onclick="responseJson()" />
+<br/>
+
+<label>测试java代码段对象:  </label>${items.name } -->${items.price }
 
  
 
